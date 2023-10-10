@@ -1,0 +1,8 @@
+public class connect4Bot {
+    private int[][] connect = new int[6][7];
+    public static void Main(String[] args) {
+        
+    }
+
+
+}
