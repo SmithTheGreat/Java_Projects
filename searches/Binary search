@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class MyProgram {
+    public static boolean binarySearch(int[] arr, int val) {
+        int l = 0;
+        int h = arr.length - 1;
+        //if ((val < arr[0]) || (val > arr[h])) return false;
+
+        while (l <= h) {
+            int m = (l + h) / 2;
+            if (arr[m] == val) return true;
+            if (arr[m] < val) {
+                l = m + 1;
+            }
+            if (arr[m] > val) {
+                h = m - 1;
+            }
+        }
+        return false;
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int[] arr = {5, 9, 20, 25, 27, 91, 100};
+        
+        System.out.println("Enter a value to check if it's in the given array (enter 0 to quit): ");
+        int val = sc.nextInt();
+        while (val != 0) {
+            System.out.println(binarySearch(arr, val));
+            System.out.println("Enter a value to check if it's in the given array (enter 0 to quit): ");
+            val = sc.nextInt();
+        }
+    }
+}
