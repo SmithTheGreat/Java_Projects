@@ -1,0 +1,55 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+public class MyProgram {
+    // this should return true if val is in arr, false otherwise
+    public static boolean search(int[] arr, int val) {
+        return Arrays.asList(arr).contains(val);
+       /* for(int i: arr) {
+            if(i == val) 
+                return true;
+        }
+        return false;*/
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // get the array values from the user
+        System.out.print("Enter the size of the array: ");
+        int size = sc.nextInt();
+        
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            System.out.print("Enter a positive value to insert into the array: ");
+            int val = sc.nextInt();
+            while (val <= 0) {
+                System.out.println("That's not positive!");
+                System.out.print("Enter a positive value to insert into the array: ");
+                val = sc.nextInt();
+            }
+            arr[i] = val;
+        }
+        
+        System.out.println("\n-----------------------------------------------\n");
+        
+        // print out the array values
+        System.out.println("Here are the values in the array: ");
+        System.out.print("[");
+        for (int i = 0; i < size - 1; i++) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println(arr[size - 1] + "]");
+        
+        System.out.println("\n-----------------------------------------------\n");
+        
+        // ask the user for a number to see if it's in the array
+        System.out.print("Enter a number to see if it's in the array (enter 0 to quit): ");
+        int val = sc.nextInt();
+        while (val != 0) {
+            System.out.println(search(arr, val));
+            System.out.print("Enter a number to see if it's in the array (enter 0 to quit): ");
+            val = sc.nextInt();
+        }
+    }
+}
